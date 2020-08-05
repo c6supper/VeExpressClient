@@ -1,0 +1,15 @@
+<nb-layout>
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-body>
+                <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
+                    <h2 class="title">{{ 'app.pages.miscellaneous.not-found.title' | translate }}</h2>
+                    <small class="sub-title">{{ 'app.pages.miscellaneous.not-found.description' | translate }}</small>
+                    <button nbButton fullWidth (click)="goToHome()" type="button" class="home-button">
+                        {{ 'app.miscellaneous.takemehome' | translate }}
+                    </button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+</nb-layout>

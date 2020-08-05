@@ -1,0 +1,8 @@
+<nb-alert outline="primary" (click)="onConfirmation()" [nbTooltip]="formatLicenseInfo(license)"
+    nbTooltipStatus="primary">
+    <nb-badge [text]="status(license.status)" [status]="color(license.status)" position="top right"></nb-badge>
+    <nb-badge *ngIf="!!action?.action" [text]="actionString(action?.action)" status="danger" position="top left">
+    </nb-badge>
+    <strong>{{ license.partNumber }}</strong>
+    {{ license.name }}
+</nb-alert>

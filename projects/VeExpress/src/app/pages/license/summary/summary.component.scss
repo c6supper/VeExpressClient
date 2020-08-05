@@ -1,0 +1,10 @@
+@import "../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+
+  .table-responsive {
+    margin-top: 1rem;
+  }
+}

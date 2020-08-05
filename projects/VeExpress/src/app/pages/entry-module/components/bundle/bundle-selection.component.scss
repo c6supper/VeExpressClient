@@ -1,0 +1,61 @@
+@import "../../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+  nb-card {
+    box-shadow: 0 0 10px nb-theme(color-primary-default),
+      0 0 5px nb-theme(color-primary-default);
+    border-width: 0.375rem;
+    height: 100%;
+  }
+
+  nb-card-header {
+    .show-grid {
+      text-align: center;
+
+      .row {
+        margin: -0.5rem;
+      }
+
+      background-color: nb-theme(background-basic-color-2);
+
+      div[class^="col-"] {
+        padding: 0.5rem;
+        box-sizing: border-box;
+
+        .label {
+          display: block;
+        }
+
+        div {
+          padding: 0.75rem 0.25rem;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  }
+
+  nb-card-body {
+    display: flex;
+
+    button {
+      margin-right: 0.5rem;
+    }
+  }
+
+  nb-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    display: -webkit-flex;
+    /* Safari */
+    -webkit-justify-content: space-around;
+  }
+
+  @include media-breakpoint-down(sm) {
+    nb-card-body {
+      flex-direction: column;
+    }
+  }
+}

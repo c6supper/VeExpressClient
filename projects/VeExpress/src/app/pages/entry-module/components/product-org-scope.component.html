@@ -1,0 +1,39 @@
+<nb-card class="scope">
+    <nb-card-header class="scope-header">
+        <div class="row show-grid">
+            <div class="col-12 col-sm-4">
+                <div>
+                    <label class="label">{{
+              "app.pages.org.label.productsbyfamily" | translate
+            }}:</label>
+                    <nb-select hero status="success" [(selected)]="selectedType" (selectedChange)="changeType($event)"
+                        nbTooltip="{{
+          'app.pages.org.label.changeproductfamily'
+            | translate
+        }}" nbTooltipStatus="warning">>
+                        <nb-option *ngFor="let type of testsetTypes" [value]="type.id">{{
+              type.type
+            }}</nb-option>
+                    </nb-select>
+                </div>
+            </div>
+            <div class="col-12 col-sm-8">
+                <div>
+                    <label class="label">{{
+              "app.pages.org.label.org&company/group" | translate
+            }}:</label>
+                    <button *ngFor="let org of orgs" nbButton [status]="org.style" ghost (click)="mock()">
+                        {{ org.name }}
+                    </button>
+                    <button *ngIf="!!company" nbButton [status]="company.style" ghost (click)="changeScope()" nbTooltip="{{
+          'app.pages.org.label.changeorgscope'
+            | translate
+        }}" nbTooltipStatus="warning">
+                        {{ company.name
+            }}<nb-icon icon="settings-2-outline" [options]="{ animation: { type: 'shake' } }"></nb-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+</nb-card>

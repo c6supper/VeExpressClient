@@ -1,0 +1,17 @@
+@import "../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+    nb-card-body {
+        margin: 2rem;
+    }
+
+    .button-group {
+        text-align: center;
+    }
+
+    button {
+        margin: 0rem 1.25rem 0rem 1.25rem;
+    }
+}

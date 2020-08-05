@@ -1,0 +1,52 @@
+@import "../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+    .colors {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .color {
+            width: 86px;
+            height: 60px;
+            border-top-right-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            @include nb-ltr(margin-right, 1rem);
+            @include nb-rtl(margin-left, 1rem);
+        }
+    }
+
+    nb-alert {
+        &:hover {
+            box-shadow: 0 0 10px nb-theme(color-primary-default), 0 0 5px nb-theme(color-primary-default);
+            transform: translateY(-1rem);
+            text-decoration: underline;
+            cursor: pointer;
+
+            .component-name {
+                color: nb-theme(color-fg);
+            }
+        }
+    }
+
+    nb-card-footer {
+        text-align: center;
+    }
+
+    @each $status in nb-get-statuses() {
+        .bg-status-#{$status} {
+            background: nb-theme(text-#{$status}-color);
+        }
+    }
+}

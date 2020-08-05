@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        <h5>{{title}}</h5>
+    </nb-card-header>
+    <nb-card-body>
+        <p>{{message}}</p>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="button-group">
+            <button class="success" nbButton status="success" (click)="submit(true)">{{submitDescription}}</button>
+            <button class="cancel" nbButton status="info" (click)="submit(false)">{{cancelDescription}}</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

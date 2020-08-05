@@ -1,0 +1,15 @@
+<!--<div class="table-container">-->
+<!--    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>-->
+<!--</div>-->
+<!-- //todo need set default selected [(selected)]="selectedType" -->
+<veexpress-product-org-scope (onSelectedCompany)="onCompanyChanged($event)"
+  (onSelectedType)="onTestsetTypeChanged($event)"></veexpress-product-org-scope>
+<nb-card>
+  <nb-card-header>
+    <h4>{{ "app.pages.license.summary.title" | translate }}</h4>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

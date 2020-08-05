@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+      nbSpinnerMessage="{{ 'app.generic.loading' | translate }}">
+      <nb-card-header>
+        <div class="row show-grid">
+          <div class="col-12 col-sm-4">
+            <div>
+              <label class="label">{{ "app.pages.testset.title" | translate }}:</label>
+              <button required nbButton status="primary" ghost (click)="mock()">
+                {{ selectedTestset.serialNumber }}
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-sm-8">
+            <div>
+              <label class="label">{{
+                  "app.pages.license.float-stepper.float-confirm.bundle-label"
+                    | translate
+                }}:</label>
+              <button nbButton *ngIf="!!bundle" status="success" outline (click)="changeBundle()" nbTooltip="{{
+                  'app.pages.license.float-stepper.float-confirm.change-bundle'
+                    | translate
+                }}" nbTooltipStatus="warning">
+                >>
+                {{ bundle.marketingDescription }}
+              </button>
+              <button nbButton *ngIf="!bundle" status="danger" ghost (click)="changeBundle()">
+                {{
+                  "app.pages.license.float-stepper.float-confirm.change-bundle"
+                    | translate
+                }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row show-grid">
+          <ng-container *ngFor="let license of filteredLicense">
+            <div class="col-12 col-sm-3">
+              <license-card [license]="license" [selectedTestset]="selectedTestset"
+                (actionEventEmitter)="onAction($event)" [assignedLicenses]="assignedLicenses"
+                [licenseRelations]="getRelations(license)" [action]="getAction(license)">
+              </license-card>
+            </div>
+          </ng-container>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton fullWidth status="success" (click)="onConfirm()" outline>
+          {{ "app.generic.confirm" | translate }}
+          <nb-icon icon="corner-down-left-outline" pack="eva" [options]="{ animation: { type: 'shake' } }">
+          </nb-icon>
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

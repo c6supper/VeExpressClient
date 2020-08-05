@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "paths": {
+    "galaxy": [
+      "projects/galaxy/dist/galaxy"
+    ],
+    "galaxy/*": [
+      "projects/galaxy/dist/galaxy/*"
+    ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}

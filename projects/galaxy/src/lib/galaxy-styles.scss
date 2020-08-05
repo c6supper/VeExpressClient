@@ -1,0 +1,34 @@
+// this is our just created themes.scss file, make sure the path to the file is correct
+@import "theme/styles/themes";
+
+// framework component styles
+@import "~@nebular/theme/styles/globals";
+//@import '~@nebular/auth/styles/all';
+
+// framework component themes (styles tied to theme variables)
+@import "~@nebular/theme/styles/globals";
+@import "~@nebular/auth/styles/all";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/grid";
+
+// loading progress bar theme
+@import "theme/styles/pace.theme";
+
+@import "theme/styles/layout";
+@import "theme/styles/overrides";
+
+// install the framework styles
+@include nb-install() {
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  @include galaxy-layout();
+  // loading progress bar
+  @include galaxy-pace-theme();
+
+  @include nb-overrides();
+}

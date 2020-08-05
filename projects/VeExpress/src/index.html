@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>VeExpress</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="assets/images/V_64.png">
+</head>
+<!--<body>-->
+<!--<app-root></app-root>-->
+<!--<style>@-webkit-keyframes spin {-->
+<!--0% {-->
+<!--transform: rotate(0)-->
+<!--}-->
+<!--100% {-->
+<!--transform: rotate(360deg)-->
+<!--}-->
+<!--}-->
+
+<!--@-moz-keyframes spin {-->
+<!--0% {-->
+<!-- -moz-transform: rotate(0)-->
+<!--}-->
+<!--100% {-->
+<!-- -moz-transform: rotate(360deg)-->
+<!--}-->
+<!--}-->
+
+<!--@keyframes spin {-->
+<!--0% {-->
+<!--transform: rotate(0)-->
+<!--}-->
+<!--100% {-->
+<!--transform: rotate(360deg)-->
+<!--}-->
+<!--}-->
+
+<!--.spinner {-->
+<!--position: fixed;-->
+<!--top: 0;-->
+<!--left: 0;-->
+<!--width: 100%;-->
+<!--height: 100%;-->
+<!--z-index: 1003;-->
+<!--background: #000000;-->
+<!--overflow: hidden-->
+<!--}-->
+
+<!--.spinner div:first-child {-->
+<!--display: block;-->
+<!--position: relative;-->
+<!--left: 50%;-->
+<!--top: 50%;-->
+<!--width: 150px;-->
+<!--height: 150px;-->
+<!--margin: -75px 0 0 -75px;-->
+<!--border-radius: 50%;-->
+<!--box-shadow: 0 3px 3px 0 rgba(255, 56, 106, 1);-->
+<!--transform: translate3d(0, 0, 0);-->
+<!--animation: spin 2s linear infinite-->
+<!--}-->
+
+<!--.spinner div:first-child:after, .spinner div:first-child:before {-->
+<!--content: '';-->
+<!--position: absolute;-->
+<!--border-radius: 50%-->
+<!--}-->
+
+<!--.spinner div:first-child:before {-->
+<!--top: 5px;-->
+<!--left: 5px;-->
+<!--right: 5px;-->
+<!--bottom: 5px;-->
+<!--box-shadow: 0 3px 3px 0 rgb(255, 228, 32);-->
+<!-- -webkit-animation: spin 3s linear infinite;-->
+<!--animation: spin 3s linear infinite-->
+<!--}-->
+
+<!--.spinner div:first-child:after {-->
+<!--top: 15px;-->
+<!--left: 15px;-->
+<!--right: 15px;-->
+<!--bottom: 15px;-->
+<!--box-shadow: 0 3px 3px 0 rgba(61, 175, 255, 1);-->
+<!--animation: spin 1.5s linear infinite-->
+<!--}</style>-->
+<!--<div id="nb-global-spinner" class="spinner">-->
+<!--<div class="blob blob-0"></div>-->
+<!--<div class="blob blob-1"></div>-->
+<!--<div class="blob blob-2"></div>-->
+<!--<div class="blob blob-3"></div>-->
+<!--<div class="blob blob-4"></div>-->
+<!--<div class="blob blob-5"></div>-->
+<!--</div>-->
+<!--</body>-->
+
+<body style="background: rgb(222, 232, 252) none repeat scroll 0% 0%;">
+    <app-root></app-root>
+    <style>
+        #bootloader-text {
+            text-align: center;
+            font-family: Lato;
+            color: #666;
+            font-size: 32px;
+            font-weight: 900
+        }
+
+        #loader-box {
+            overflow: hidden;
+            position: relative;
+            margin: 12% auto 40px auto;
+            width: 300px;
+            height: 300px
+        }
+
+        #loader-box #loader-complete-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 300px;
+            transition: transform 0.15s linear, opacity 0.15s linear;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            transform: scale(2)
+        }
+
+        #loader-box #loader-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transition: transform 0.1s linear
+        }
+
+        #loader-box #loader-wrapper .loader {
+            transition: opacity 0.1s linear
+        }
+
+        #loader-box.closeout #loader-wrapper {
+            transform: scale(0.5)
+        }
+
+        #loader-box.closeout .loader {
+            opacity: 0 !important
+        }
+
+        #loader-box.closeout:after {
+            opacity: 1;
+            transform: scale(3);
+            /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABFFBMVEUAAAAAMngAMngAMngA MngAMngAMngAM3gAM3gAOXgAM3gANXgAQXkAMngAMngANHgAPHgAMngANXgANXgAMngANHgAN3gA MngAMngAM3gAM3gANHgANHgANXgANXgAMngANXgAMngAN3gANXgAOXgANXgAQXkAOXgAOHgANngA NXgANHgAOHgANngAOXgAO3gAMngAOXgAOngAN3gAPHgAQXkAO3gAPngAPXgAQXkAOHgAN3gAOXgA OHgAPHgAO3gAOHgAPngAOngAPXgAPngAOHgAOngAPHgANngAPHgANngAO3gAQXkAN3gAOHgANngA NngAN3gANHgAM3gAM3gAN3gAMngAM3gANHgANXgANnj/////OekMAAAAVnRSTlMAHz9/j7/vj38f v08Pb69vL8/ff0+/Xw/f3+/fz48/L79ff58/zx9fn5/v72/Pf0+fv8/Pj0+fT38/j7/vv7+v32+P P1+vb2/fX+9/L69Pr2+PX6+fL5Ufh4YAAAABYktHRFt0vJU0AAAAB3RJTUUH5AEPEhAurbSiUgAA Bg1JREFUeNrtW1t7GzUQ9V4TUpxkybZyHAd3G1KKTcKWW5uW0kAg0HIvYCf9/z8E21nddmelGa3c B77MU2tHc45Go9FoPOr1HCQIozhJ0pmUJNnYDN9z0UWWMNKQddmK7ry/TvCgvz2zytbO7rrQMzv6 jXyw5381csTcVbl7zyc66w9o8EvZ3/PlDixK6fBLGfqh0AKfbEXRZriSfhRtw1vDA4UcMP5iswFO xsJou8nioJsvBEld4ejwQ9OAcXOr3N91x+/XZnSA2V6sqHN44Gn6Rx+hR8Y682MnI+SakuHeQ8pg Vmi+M/yYjh939WadwiPiaKaZ/xOnzaTHj2OSjkD1I3c3Zmr8nhDUjBXq009d4ZcSKuswRTNQ8U86 nmuqEeZIV1TxT7vBL6VQ1KEYKPjTz7rjLxRmJAYKvlv8aIqypeZWlYHEP/GX3pVoT2TSXI99ppeS wcSsVhqLGrrQDIwRKV4X/kJ1wsXgiLnA/3yt6X2bsBRlplu5lVv5/0nkJIETVhgWNT2LD2dOEhKh gxwurbwbAnncer9/BwTCMjXoWTcBa21j5RhGKeAJoAgExslzAvZZxG4EWGlDRxJYpNYOBJCVHaQj RWQCIbKuhSTQG9AIMFRVL02SGEugIBGwTz+LC1ooCygE+paJlznTJldFZXMJhEDA7Pxl3qL6yhMB ZiopD/qsMSCsvvvCvAZYAib8QQGN4DvsSy8EDPgwfK/HN8xXPgi046dRm+b05g+uLXcRFIF2/KQ1 gWE4F8ARaPP/tN+umPvg1x4IRC342bj1T5+IoPG0O4G8Bb9sbj0x71NB5awzAaW4ognofTyyPuMl iWtbKdhOIIHxC6O+53zYWwu+nUCfhN/LOIHKbt90JTCm4fOJT6QpOhLIaPh8x15zxS86EoiJ+Nz5 BYFvuxEIQfzSoK9O4GUnAgzMgBKTvorAFVdsrUobCYAZYMpM+nj88UKggPAtaWudQJclgEOgJd+t CMx9OCEYAjNm1ld3wsfuBOAzcGzRVyfgHojgEBjZ9AkC1fqduxKAk6DMpk6G4q6HERgCU3sFKeGW 73gcwyGwb8Xnln8uZuCWkMgCuyrbdnyu75nw4e+cCDiEQN1yp+Jf37sQgENgbscXI89EcmY7jyEC TiHwRqqVnz8U3mDbBhABMAQOEAsg8peJ1DI/IxOAQyCu7jDjm0CqeUol4BgCV8KvEMtDmHvhCyIB OAmxh8CV8M1/oah+a76dNgjAIdB2BlVSkb9aYXJX+oFEAM5CESFwKXzr3RyB/EbxI4kAKAkGvSf9 7lKjY14DDD4mBKorMKsOIH6g/tSVACYELoXvn5+r//M1OO9IoETiizoGz4T5GhhjkR0fFwJ7sigz FykA3wcmN7QTQJdeuQvKNLBoUHIggC47ixzilfyMe6WhbcGGjwyBigFeA58ZTGAjgAyBigFOoQ/b rwcWfGQIVCard7MIE1y4EcCGQCWJ0W+jwgTnTgQQaTgXnkXW23lEcvGLCwFsCFTS+Pp1XJzuV7/S CaB3oIRp9jOJBLelaGzAL9H4spj8qvmdyDDhHw684Iti7n3gS/Gz1PwJiQB+A8odADfVCT+cQOGo BT5DByD1It1SEBLfQ41UIPyg6BFEOMCJzUJQQATgt0nw8iLf3tUor3rNUynRpYyoPRxS+SXCSP7b +Qqc6mxdDCS+uVNPue54ZSDxp5ZSjNJU+8hfU6G8xtrbqxUG3tpqlV/zEJ3KStnptZUuRhitsVmr u8wvMQMsE0qJ+PqQ37oug1rFQL+zUNvbJ536y9W+8unvhHFq8eEP0usSVbQGJPzzgtVQtQI8fOC2 Dmpj/+yY+lBB+yF84vBeSu+kcfAljf/s4E+ahtprJ6d3IoGuY/gX2oj1FrrRrgt+r1kIvPsGY4bG 28hD963cfOz2947RDqzZ/De6wKLB02lWA/f/2QFf3I2LuPnrybDTK6HVnOCuvP1kI3rDex7zKErg H6+9vLl0fvI5O/L1+Nbp0SvxfZ5NqM9+R/e8v5EgPHzeP9z1jc45JHb00ea/60GvxPj4PdlY7+N3 YQng+f9RdMdp5v8BuXSNzJfjqBEAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDEtMTZUMDE6MTY6 NDYtMDc6MDCyW9JrAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTAxLTE2VDAxOjE2OjQ2LTA3OjAw wwZq1wAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=") !important;*/
+            /*backgounrd-size: 100% 100%*/
+        }
+
+        #loader-box:after {
+            transition: transform 0.1s linear;
+            content: "";
+            background-size: 22px;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+            /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAABGdBTUEAALGPC/xhBQAAACBjSFJN AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABFFBMVEUAAAAAMngAMngAMngA MngAMngAMngAM3gAM3gAOXgAM3gANXgAQXkAMngAMngANHgAPHgAMngANXgANXgAMngANHgAN3gA MngAMngAM3gAM3gANHgANHgANXgANXgAMngANXgAMngAN3gANXgAOXgANXgAQXkAOXgAOHgANngA NXgANHgAOHgANngAOXgAO3gAMngAOXgAOngAN3gAPHgAQXkAO3gAPngAPXgAQXkAOHgAN3gAOXgA OHgAPHgAO3gAOHgAPngAOngAPXgAPngAOHgAOngAPHgANngAPHgANngAO3gAQXkAN3gAOHgANngA NngAN3gANHgAM3gAM3gAN3gAMngAM3gANHgANXgANnj/////OekMAAAAVnRSTlMAHz9/j7/vj38f v08Pb69vL8/ff0+/Xw/f3+/fz48/L79ff58/zx9fn5/v72/Pf0+fv8/Pj0+fT38/j7/vv7+v32+P P1+vb2/fX+9/L69Pr2+PX6+fL5Ufh4YAAAABYktHRFt0vJU0AAAAB3RJTUUH5AEPEhAurbSiUgAA Bg1JREFUeNrtW1t7GzUQ9V4TUpxkybZyHAd3G1KKTcKWW5uW0kAg0HIvYCf9/z8E21nddmelGa3c B77MU2tHc45Go9FoPOr1HCQIozhJ0pmUJNnYDN9z0UWWMNKQddmK7ry/TvCgvz2zytbO7rrQMzv6 jXyw5381csTcVbl7zyc66w9o8EvZ3/PlDixK6fBLGfqh0AKfbEXRZriSfhRtw1vDA4UcMP5iswFO xsJou8nioJsvBEld4ejwQ9OAcXOr3N91x+/XZnSA2V6sqHN44Gn6Rx+hR8Y682MnI+SakuHeQ8pg Vmi+M/yYjh939WadwiPiaKaZ/xOnzaTHj2OSjkD1I3c3Zmr8nhDUjBXq009d4ZcSKuswRTNQ8U86 nmuqEeZIV1TxT7vBL6VQ1KEYKPjTz7rjLxRmJAYKvlv8aIqypeZWlYHEP/GX3pVoT2TSXI99ppeS wcSsVhqLGrrQDIwRKV4X/kJ1wsXgiLnA/3yt6X2bsBRlplu5lVv5/0nkJIETVhgWNT2LD2dOEhKh gxwurbwbAnncer9/BwTCMjXoWTcBa21j5RhGKeAJoAgExslzAvZZxG4EWGlDRxJYpNYOBJCVHaQj RWQCIbKuhSTQG9AIMFRVL02SGEugIBGwTz+LC1ooCygE+paJlznTJldFZXMJhEDA7Pxl3qL6yhMB ZiopD/qsMSCsvvvCvAZYAib8QQGN4DvsSy8EDPgwfK/HN8xXPgi046dRm+b05g+uLXcRFIF2/KQ1 gWE4F8ARaPP/tN+umPvg1x4IRC342bj1T5+IoPG0O4G8Bb9sbj0x71NB5awzAaW4ognofTyyPuMl iWtbKdhOIIHxC6O+53zYWwu+nUCfhN/LOIHKbt90JTCm4fOJT6QpOhLIaPh8x15zxS86EoiJ+Nz5 BYFvuxEIQfzSoK9O4GUnAgzMgBKTvorAFVdsrUobCYAZYMpM+nj88UKggPAtaWudQJclgEOgJd+t CMx9OCEYAjNm1ld3wsfuBOAzcGzRVyfgHojgEBjZ9AkC1fqduxKAk6DMpk6G4q6HERgCU3sFKeGW 73gcwyGwb8Xnln8uZuCWkMgCuyrbdnyu75nw4e+cCDiEQN1yp+Jf37sQgENgbscXI89EcmY7jyEC TiHwRqqVnz8U3mDbBhABMAQOEAsg8peJ1DI/IxOAQyCu7jDjm0CqeUol4BgCV8KvEMtDmHvhCyIB OAmxh8CV8M1/oah+a76dNgjAIdB2BlVSkb9aYXJX+oFEAM5CESFwKXzr3RyB/EbxI4kAKAkGvSf9 7lKjY14DDD4mBKorMKsOIH6g/tSVACYELoXvn5+r//M1OO9IoETiizoGz4T5GhhjkR0fFwJ7sigz FykA3wcmN7QTQJdeuQvKNLBoUHIggC47ixzilfyMe6WhbcGGjwyBigFeA58ZTGAjgAyBigFOoQ/b rwcWfGQIVCard7MIE1y4EcCGQCWJ0W+jwgTnTgQQaTgXnkXW23lEcvGLCwFsCFTS+Pp1XJzuV7/S CaB3oIRp9jOJBLelaGzAL9H4spj8qvmdyDDhHw684Iti7n3gS/Gz1PwJiQB+A8odADfVCT+cQOGo BT5DByD1It1SEBLfQ41UIPyg6BFEOMCJzUJQQATgt0nw8iLf3tUor3rNUynRpYyoPRxS+SXCSP7b +Qqc6mxdDCS+uVNPue54ZSDxp5ZSjNJU+8hfU6G8xtrbqxUG3tpqlV/zEJ3KStnptZUuRhitsVmr u8wvMQMsE0qJ+PqQ37oug1rFQL+zUNvbJ536y9W+8unvhHFq8eEP0usSVbQGJPzzgtVQtQI8fOC2 Dmpj/+yY+lBB+yF84vBeSu+kcfAljf/s4E+ahtprJ6d3IoGuY/gX2oj1FrrRrgt+r1kIvPsGY4bG 28hD963cfOz2947RDqzZ/De6wKLB02lWA/f/2QFf3I2LuPnrybDTK6HVnOCuvP1kI3rDex7zKErg H6+9vLl0fvI5O/L1+Nbp0SvxfZ5NqM9+R/e8v5EgPHzeP9z1jc45JHb00ea/60GvxPj4PdlY7+N3 YQng+f9RdMdp5v8BuXSNzJfjqBEAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDEtMTZUMDE6MTY6 NDYtMDc6MDCyW9JrAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTAxLTE2VDAxOjE2OjQ2LTA3OjAw wwZq1wAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAASUVORK5CYII=") !important;*/
+            background-image: url(assets/images/V_64.png) !important;
+            background-size: 18% 18%;
+        }
+
+        .loader {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            opacity: .7
+        }
+
+        .loader circle {
+            animation: draw 3s infinite ease-in-out;
+            transform-origin: 150px 150px;
+            transform: rotate(-90deg)
+        }
+
+        .loader-2 circle,
+        .loader-6 circle {
+            animation-delay: 1.2s
+        }
+
+        .loader-7 circle {
+            animation-delay: 1.5s
+        }
+
+        .loader-4 circle,
+        .loader-8 circle {
+            animation-delay: 2.25s
+        }
+
+        .loader-3 {
+            /*left: -150px;*/
+            transform: rotateY(180deg)
+        }
+
+        .loader-6,
+        .loader-7,
+        .loader-8 {
+            /*left: -150px;*/
+            transform: rotateX(180deg) rotateY(180deg)
+        }
+
+        .loader-5 circle {
+            opacity: .2
+        }
+
+        @keyframes draw {
+            50% {
+                stroke-dashoffset: 0;
+                transform: scale(0.5)
+            }
+        }
+    </style>
+    <div id="nb-global-spinner">
+        <div id="loader-box">
+            <div id="loader-complete-circle"></div>
+            <div id="loader-wrapper">
+                <svg class="loader">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#8ad3ff" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-2">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#ce9178" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-3">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#b869a0" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-4">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#5d8a4e" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-5">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="black" stroke-width="9"
+                        stroke-linecap="round"></circle>
+                </svg>
+                <svg class="loader loader-6">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#4387cf" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-7">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#b86cb4" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+                <svg class="loader loader-8">
+                    <circle cx="150" cy="150" r="120" fill="transparent" stroke="#d4d797" stroke-width="9"
+                        stroke-linecap="round" stroke-dasharray="385" stroke-dashoffset="385"></circle>
+                </svg>
+            </div>
+        </div>
+
+        <div id="bootloader-text">VeExpress Loading</div>
+    </div>
+</body>
+
+</html>

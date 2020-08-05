@@ -1,0 +1,38 @@
+<nb-card>
+    <nb-card-header>
+        <div class="row show-grid">
+            <div class="col-12 col-sm-4">
+                <div>
+                    <label class="label">{{"app.pages.org.label.productsbyfamily" | translate}}:</label>
+                    <button nbButton status="success" ghost (click)="mock()">
+                        {{ testsetType}}
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div>
+                    <label class="label">{{"app.pages.testset.testset-cards.selected" | translate}}:</label>
+                    <button required nbButton status="warning" ghost (click)="mock()"
+                        nbTooltip="{{'app.pages.testset.testset-cards.selectedtip'| translate}}"
+                        nbTooltipStatus="warning">
+                        {{ (selectedTestset | async)?.serialNumber}}
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <div>
+                    <label class="label">{{"app.pages.testset.testset-cards.partnumber" | translate}}:</label>
+                    <button nbButton status="info" ghost (click)="mock()"
+                        nbTooltip="{{'app.pages.testset.testset-cards.partnumbertip'| translate}}"
+                        nbTooltipStatus="warning">
+                        {{ partNumber}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="source" (rowSelect)="rowSelect($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+</nb-card>

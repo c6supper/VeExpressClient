@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-header>
+        <div class="colors">
+            <div class="item text-success">
+                <div class="color bg-status-success"></div>
+                <div>
+                    <h5 class="text-success">
+                        {{ "app.generic.information" | translate }}
+                    </h5>
+                    {{ "app.pages.license.release-stepper.confirmchanges.releaseconfirm" | translate :{serialNumber:selectedTestset.serialNumber} }}
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row show-grid">
+            <div class="col-12 col-sm-4">
+                <nb-alert outline="success" class="conflict-license">
+                    <strong>{{partNumber}}</strong>
+                    {{licenseDesc}}
+                </nb-alert>
+            </div>
+            <ng-container *ngFor="let relation of conflicts">
+                <div class="col-12 col-sm-4">
+                    <nb-alert *ngIf="!!relation.resolved" outline="success" class="conflict-license">
+                        <strong>{{relation.targetLicense.partNumber}}</strong>
+                        {{relation.targetLicense.marketingDescription}}
+                    </nb-alert>
+                </div>
+            </ng-container>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button nbButton fullWidth status="success" (click)="onConfirm()" outline>
+            {{"app.generic.confirm" | translate}}
+            <nb-icon icon="corner-down-left-outline" pack="eva" [options]="{ animation: { type: 'shake' } }"></nb-icon>
+        </button>
+    </nb-card-footer>
+</nb-card>

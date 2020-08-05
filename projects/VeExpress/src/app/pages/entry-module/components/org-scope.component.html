@@ -1,0 +1,32 @@
+<nb-card [style.min-width.px]="breakpoint.width * 0.5">
+  <nb-card-header>
+    <h4>{{ "app.pages.common.org-scope.title" | translate }}</h4>
+    <div class="row show-grid">
+      <div class="col-12 col-sm-12">
+        <label class="label">{{
+            "app.pages.org.label.org&company/group" | translate
+          }}:</label>
+        <div>
+          <button *ngFor="let org of orgs" nbButton [status]="org.style" ghost (click)="mock()">
+            {{ org.name }}
+          </button>
+          <button nbButton [status]="company.style" ghost (click)="mock()">
+            {{ company.name }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" [style.min-width.px]="breakpoint.width * 0.49"
+      (rowSelect)="onSelectRow($event)"></ng2-smart-table>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton class="submit" status="success" (click)="submit(company)">
+      {{ "app.generic.submit" | translate }}
+    </button>
+    <button nbButton class="cancel" status="warning" (click)="cancel()">
+      {{ "app.generic.cancel" | translate }}
+    </button>
+  </nb-card-footer>
+</nb-card>

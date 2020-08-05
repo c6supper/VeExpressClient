@@ -1,0 +1,56 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+    nbSpinnerMessage="{{'app.generic.loading' | translate }}">
+    <nb-card-header>
+        <div class="colors">
+            <div class="item text-danger">
+                <div class="color bg-status-danger"></div>
+                <div>
+                    <h5 class="text-danger">
+                        {{ "app.generic.warning" | translate }}
+                    </h5>
+                    {{ "app.pages.license.resolve-conflicts.warning" | translate :{serialNumber:selectedTestset.serialNumber} }}
+                </div>
+            </div>
+        </div>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="row show-grid">
+            <ng-container *ngFor="let licenseWithAction of conflictedRelatedLicenseWithAction">
+                <div class="col-12 col-sm-4">
+                    <!-- <nb-alert *ngIf="!licenseWithAction.resolved" outline="success" class="conflict-license"
+                        (click)="onConfirmation(licenseWithAction)">
+                        <nb-badge
+                            text="{{ 'app.pages.license.release-stepper.resolveconflicts.required' | translate :{partNumber:partNumber} }}"
+                            status="danger" position="top right"></nb-badge>
+                        <strong>{{licenseWithAction.license.partNumber}}</strong>
+                        {{licenseWithAction.license.name}}
+                    </nb-alert> -->
+                    <license-card *ngIf="!licenseWithAction.resolved" [license]="licenseWithAction.license"
+                        [selectedTestset]="selectedTestset" (actionEventEmitter)="onAction($event)"
+                        [assignedLicenses]="assignedLicenses"
+                        [licenseRelations]="getRelations(licenseWithAction.license)" [action]="licenseWithAction.action"
+                        [tips]="licenseWithAction.tips">
+                    </license-card>
+                    <!-- <nb-alert *ngIf="!!relation.resolved" outline="success" class="conflict-license"
+                        (click)="onConfirmation(relation)">
+                        <nb-badge
+                            text="{{'app.pages.license.release-stepper.resolveconflicts.willbereleased' | translate}}"
+                            status="success" position="top right"></nb-badge>
+                        <strong>{{relation.targetLicense.partNumber}}</strong>
+                        {{relation.targetLicense.marketingDescription}}
+                    </nb-alert> -->
+                </div>
+            </ng-container>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button *ngIf="!confirmResolved" nbButton fullWidth status="warning" (click)="markAsResolved()" outline>
+            <nb-icon icon="alert-triangle-outline" pack="eva" [options]="{ animation: { type: 'shake' } }"></nb-icon>
+            {{"app.pages.license.release-stepper.resolveconflicts.markasresovled" | translate}}
+        </button>
+        <button *ngIf="confirmResolved" nbButton fullWidth status="success" (click)="mock()" outline>
+            <nb-icon icon="checkmark-outline" pack="eva" [options]="{ animation: { type: 'flip' } }"></nb-icon>
+            {{"app.pages.license.release-stepper.resolveconflicts.resovled" | translate}}
+        </button>
+    </nb-card-footer>
+</nb-card>

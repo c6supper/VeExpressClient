@@ -1,0 +1,22 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+  nbSpinnerMessage="{{ 'app.generic.loading' | translate }}">
+  <nb-card-header>
+    <h4>{{ "app.pages.testset.lists.title" | translate:{serialNumber:serialNumberKey} }}</h4>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="row show-grid">
+      <ng-container *ngFor="let testset of testsets">
+        <div class="col-12 col-sm-3">
+          <nb-alert outline="info" (click)="float(testset)" [nbTooltip]="testset.company.name"
+            nbTooltipStatus="primary">
+            <nb-badge [text]="testset.status" status="success" position="top right"></nb-badge>
+            <nb-badge [text]="testset.moduleType" status="info" position="top left"></nb-badge>
+            <strong>{{ testset.serialNumber.substr(0,14)}}</strong>
+            {{ 'app.pages.testset.lists.last-seen' | translate :{lastSeen:testset.connectedDateTime} }}
+          </nb-alert>
+        </div>
+      </ng-container>
+    </div>
+  </nb-card-body>
+</nb-card>

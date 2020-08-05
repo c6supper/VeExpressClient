@@ -1,0 +1,46 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+    nbSpinnerMessage="{{ 'app.generic.loading' | translate }}">
+    <nb-card-body>
+        <nb-stepper orientation="horizontal" [linear]=true #stepper>
+            <nb-step label="{{'app.pages.license.float-stepper.title.float-licenses' | translate}}"
+                [stepControl]="actions">
+                <float-confirm-card [selectedTestset]="testset" (confirmed)="onConfirmedActions($event)"
+                    [licenseRelations]="licenseRelations" [moduleType]="moduleType"
+                    [assignedLicenses]="assignedLicenses" [relatedLicense]="relatedLicense">
+                </float-confirm-card>
+                <div class="button-group">
+                    <button nbButton status="warning" (click)="onGoBack()">{{"app.generic.cancel" | translate}}</button>
+                </div>
+            </nb-step>
+            <nb-step label="{{'app.pages.license.float-stepper.title.resolve-conflicts' | translate}}"
+                [stepControl]="conflicts">
+                <resolve-conflicts-card [selectedTestset]="testset" [licenseRelations]="licenseRelations"
+                    [moduleType]="moduleType" [relatedLicenseWithAction]="relatedLicenseWithAction"
+                    [assignedLicenses]="assignedLicenses" [relatedLicense]="relatedLicense"
+                    (resolved)="onConfirmedConflicts($event)">
+                </resolve-conflicts-card>
+                <div class="button-group">
+                    <button nbButton status="warning" (click)="onGoBack()">{{"app.generic.cancel" | translate}}</button>
+                </div>
+            </nb-step>
+            <nb-step label="{{'app.pages.license.release-stepper.confirmchanges.title' | translate}}"
+                [stepControl]="confirmed">
+                <conflicts-confirm-card [selectedTestset]="testset" [conflicts]="conflicts.value"
+                    (confirmed)="onConfirmed($event)">
+                </conflicts-confirm-card>
+            </nb-step>
+            <nb-step [hidden]="true" label="{{'app.pages.license.release-stepper.confirmchanges.title' | translate}}">
+                <div class="step-container">
+                    <h2>{{'app.pages.license.release-stepper.finalstep' | translate}}
+                    </h2>
+                    <h4>{{'app.pages.license.float-stepper.connect-testset' | translate : {serialNumber:testset.serialNumber} }}
+                    </h4>
+                    <div class="button-group">
+                        <button nbButton status="success"
+                            (click)="onGoBack()">{{"app.generic.goback" | translate}}</button>
+                    </div>
+                </div>
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>

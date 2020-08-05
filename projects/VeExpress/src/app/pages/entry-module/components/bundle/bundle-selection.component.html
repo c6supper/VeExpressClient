@@ -1,0 +1,19 @@
+<nb-card [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"
+  nbSpinnerMessage="{{ 'app.generic.loading' | translate }}">
+  <nb-card-header>
+    <h5>{{moduleType.name}}</h5>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-radio-group status="success" (valueChange)="onChangeBundle($event)">
+      <nb-radio *ngFor="let bundle of bundles" [value]="bundle.id">
+        <button nbButton shape="round" outline size='tiny' status="success">{{bundle.bundlePartNumber}}</button>
+        {{bundle.marketingDescription}}
+      </nb-radio>
+    </nb-radio-group>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="info" (click)="cancel()">
+      {{ "app.entry-component.bundle-selection.select-all" | translate }}
+    </button>
+  </nb-card-footer>
+</nb-card>

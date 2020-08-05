@@ -1,0 +1,35 @@
+@import "../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+    nb-card {
+        box-shadow: 0 0 5px nb-theme(background-basic-color-3),
+            0 0 5px nb-theme(background-basic-color-3);
+
+        .show-grid {
+            text-align: center;
+
+            div[class^=col-] {
+                padding: 0.5rem;
+                box-sizing: border-box;
+
+                .label {
+                    display: block;
+                }
+
+                div {
+                    // background-color: nb-theme(background-basic-color-2);
+                    padding: 0.75rem 0.25rem;
+                    border-radius: 0.25rem;
+
+                    span {
+                        background-color: nb-theme(background-basic-color-2);
+                        box-shadow: 0 0 5px nb-theme(color-primary-default),
+                            0 0 2px nb-theme(color-primary-default);
+                    }
+                }
+            }
+        }
+    }
+}

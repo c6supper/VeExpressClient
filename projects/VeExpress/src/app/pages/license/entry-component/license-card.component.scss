@@ -1,0 +1,20 @@
+@import "../../../../../../galaxy/src/lib/theme/styles/themes";
+@import "../../../../../../galaxy/src/lib/theme/styles/global/breakpoints";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+@include nb-install-component() {
+    nb-alert {
+        white-space: pre-wrap;
+
+        &:hover {
+            box-shadow: 0 0 10px nb-theme(color-primary-default), 0 0 5px nb-theme(color-primary-default);
+            transform: translateY(-1rem);
+            text-decoration: underline;
+            cursor: pointer;
+
+            .component-name {
+                color: nb-theme(color-fg);
+            }
+        }
+    }
+}

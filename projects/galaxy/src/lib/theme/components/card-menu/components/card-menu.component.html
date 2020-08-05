@@ -1,0 +1,39 @@
+<!--<nb-card class="header-card">-->
+    <!--<nb-card-header>-->
+        <!--<h2 class="h4 page-heading">Navigation</h2>-->
+    <!--</nb-card-header>-->
+<!--</nb-card>-->
+
+<div class="components-list">
+    <ng-container *ngFor="let component of components">
+        <!--<h3 *ngIf="component.children" class="group-title h4">{{ component.title }}</h3>-->
+        <!--<ng-container *ngFor="let entry of component.children">-->
+            <!--<div class="component-card-wrapper">-->
+                <!--<a class="component-navigate-link" [routerLink]="entry.link">-->
+                    <!--<nb-card [attr.title]="entry.title">-->
+                        <!--<nb-card-body>-->
+                            <!--<img class="component-icon" src="{{ entry.icon }}"-->
+                                 <!--[attr.alt]="entry.title">-->
+                            <!--<label class="component-name">{{ entry.title }}</label>-->
+                        <!--</nb-card-body>-->
+                    <!--</nb-card>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</ng-container>-->
+        <ng-container *ngIf="!component.children">
+            <div class="component-card-wrapper">
+                <a class="component-navigate-link" [routerLink]="component.link">
+                    <nb-card [attr.title]="component.title">
+                        <nb-card-body>
+                            <img class="component-icon" src="{{ component.icon }}"
+                                 [attr.alt]="component.title">
+                            <label class="component-name">{{component.title | translate}}</label>
+                        </nb-card-body>
+                    </nb-card>
+                </a>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <ng-template #loading ></ng-template>
+</div>

@@ -1,0 +1,160 @@
+{
+  "app": {
+    "description": "License and test set assets management website.",
+    "generic": {
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "warning": "Warning",
+      "information": "Information",
+      "confirm": "Confirm",
+      "goback": "Go Back",
+      "loading": "Loading ...",
+      "serial-number": "Serial Number"
+    },
+    "miscellaneous": {
+      "takemehome": "Take me home"
+    },
+    "entry-component": {
+      "bundle-selection": {
+        "select-all": "Select All"
+      }
+    },
+    "pages": {
+      "login": {
+        "signin": "Sign In",
+        "account": "Account",
+        "password": "Password",
+        "keepmesignedin": "Keep me signed in",
+        "forgotyourpassword": "Forgot your password?",
+        "login": "Login"
+      },
+      "common": {
+        "org-scope": {
+          "title": "Choose the Org and Company/Group"
+        }
+      },
+      "testset": {
+        "title": "Test set",
+        "summary": {
+          "title": "Summary",
+          "float-license": "Click to float the licenses for this test set."
+        },
+        "testset-cards": {
+          "selected": "Selected",
+          "partnumber": "Part Number",
+          "selectedtip": "Choose the test set you want to release the license.",
+          "partnumbertip": "The license you are about to release."
+        },
+        "lists": {
+          "last-seen": "Last seen {{lastSeen}}",
+          "title": "Serial Number like {{serialNumber}}"
+        }
+      },
+      "history": {
+        "title": "History"
+      },
+      "license": {
+        "title": "License",
+        "generic": {
+          "release-conflict-warning": "{{partNumber}} required {{requiredPartNumber}}, you should release {{partNumber}} as well , or its function would be invalid.",
+          "assign-conflict-warning": "You could not assign {{partNumber}} and {{conflict}} in the same test set.",
+          "release-warning": "Are you sure to release {{partNumber}} from {{serialNumber}} ?",
+          "assign-warning": "Are you sure to assign {{partNumber}} to {{serialNumber}} ?"
+        },
+        "summary": {
+          "title": "Summary",
+          "assignedhyperlinkrender": {
+            "floatinglicense": "Click to release assigned license which is tied to a specific test set, will move this license to \"Available\" license pool."
+          },
+          "availablehyperlinkrender": {
+            "floatinglicense": "Click to assign license to a specific test set ,will move this license to \"Assigned\" license pool."
+          }
+        },
+        "release-stepper": {
+          "seletecttestset": {
+            "title": "Select Test set"
+          },
+          "finalstep": "You are almost there! ",
+          "connecttestset": "The final step is to connect server with your test set({{serialNumber}}), and check, then these assigned licenses will be returned to the avaliable license pool.",
+          "resolveconflicts": {
+            "title": "Resolve Conflicts",
+            "about2release": "Resolve the conflicts before releasing {{partNumber}} from {{serialNumber}}.",
+            "required": "Required {{partNumber}}",
+            "willbereleased": "Will be released",
+            "keep": "Keep",
+            "release": "Release",
+            "markasresovled": "Mark all the conflicts as resolved.",
+            "resolved": "Conflicts are resolved."
+          },
+          "confirmchanges": {
+            "title": "Confirm Changes",
+            "releaseconfirm": "You about to release these licenses from {{serialNumber}}, please check the list below and confirm the changes."
+          }
+        },
+        "float-stepper": {
+          "float-confirm": {
+            "bundle-label": "License Bundle",
+            "change-bundle": "Click to change the License Bundle"
+          },
+          "title": {
+            "float-licenses": "Float Licenses",
+            "resolve-conflicts": "Resolve Conflicts"
+          },
+          "connect-testset": "The final step is to connect server with your test set({{serialNumber}}), and check."
+        },
+        "conflicts-confirm-card": {
+          "confirm-changes": {
+            "title": "Confirm Changes",
+            "info": "You about to float licenses for {{serialNumber}}, please check the list below and confirm the changes."
+          }
+        },
+        "resolve-conflicts": {
+          "warning": "Please resolve the conflicts for {{serialNumber}}."
+        },
+        "license-card": {
+          "release": "Release",
+          "assign": "Assign",
+          "status": {
+            "activated": "Activated",
+            "assigned": "Assigned,waiting for checking",
+            "idle": "Available",
+            "releasing": "Releasing,waiting for checking",
+            "not-purchased": "Not purchased",
+            "licensed": "Permanent License"
+          },
+          "badge": {
+            "release": "Will be released",
+            "assign": "Will be assigned"
+          },
+          "tips": {
+            "activated": "License have been activated in test set.",
+            "assigned": "License have been assigned to test set, wait for test set to check.",
+            "licensed": "License have been permanent activated in test set, please check the offline code.",
+            "releasing": "Releasing the license, wait for test set to check.",
+            "idle": "Available license, could be assigned to test set.",
+            "not-purchased": "You haven't purchased that license yet, please contact VeEX sales engineer."
+          }
+        }
+      },
+      "org": {
+        "title": "Org",
+        "label": {
+          "productsbyfamily": "Products by family",
+          "org&company/group": "Org & Company/Groups",
+          "changeorgscope": "You could only see one specific Company/Group 's data, click to switch to another Company/Group.",
+          "changeproductfamily": "License is only allowed to float between the same type of product, click to switch to another type."
+        }
+      },
+      "user": {
+        "title": "User"
+      },
+      "miscellaneous": {
+        "not-found": {
+          "title": "404 Page Not Found",
+          "description": "The page you were looking for doesn't exist"
+        }
+      }
+    },
+    "title": "VeExpress"
+  }
+}

@@ -1,0 +1,42 @@
+<nb-card>
+    <nb-card-body>
+        <nb-stepper orientation="horizontal" [linear]=true [disableStepNavigation]=true #stepper>
+            <nb-step label="{{'app.pages.license.release-stepper.seletecttestset.title' | translate}}"
+                [stepControl]="selectedTestset">
+                <veexpress-testset-cards [testsets]="testsets" [partNumber]="partNumber" [testsetType]="testsetType"
+                    (selectedTestset)="onSelectTestset($event)">
+                </veexpress-testset-cards>
+                <div class="button-group">
+                    <button nbButton status="warning" (click)="onGoBack()">{{"app.generic.cancel" | translate}}</button>
+                </div>
+            </nb-step>
+            <nb-step label="{{'app.pages.license.release-stepper.resolveconflicts.title' | translate}}"
+                [stepControl]="hasConflict">
+                <release-conflict-card [selectedTestset]="selectedTestset.value" [partNumber]="partNumber"
+                    (resolved)="onResolved($event)">
+                </release-conflict-card>
+                <div class="button-group">
+                    <button nbButton status="warning" (click)="onGoBack()">{{"app.generic.cancel" | translate}}</button>
+                </div>
+            </nb-step>
+            <nb-step label="{{'app.pages.license.release-stepper.confirmchanges.title' | translate}}"
+                [stepControl]="hasConflict">
+                <release-confirm-card [partNumber]="partNumber" [selectedTestset]="selectedTestset.value"
+                    [conflicts]="hasConflict.value" [licenseDesc]="licenseDesc" (released)="onReleased($event)">
+                </release-confirm-card>
+            </nb-step>
+            <nb-step [hidden]="true" label="{{'app.pages.license.release-stepper.confirmchanges.title' | translate}}">
+                <div class="step-container">
+                    <h2>{{'app.pages.license.release-stepper.finalstep' | translate}}
+                    </h2>
+                    <h4>{{'app.pages.license.release-stepper.connecttestset' | translate : {serialNumber:selectedTestset.value.serialNumber} }}
+                    </h4>
+                    <div class="button-group">
+                        <button nbButton status="success"
+                            (click)="onGoBack()">{{"app.generic.goback" | translate}}</button>
+                    </div>
+                </div>
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>
