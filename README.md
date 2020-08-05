@@ -1,6 +1,7 @@
 ## About
 
 VeExpress client(Angular)
+Based on the Nebular project https://github.com/akveo/nebular.
 
 ## Prerequisites
 
